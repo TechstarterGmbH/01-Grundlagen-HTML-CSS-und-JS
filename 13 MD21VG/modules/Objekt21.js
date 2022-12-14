@@ -32,8 +32,26 @@ class Objekt21 {
 
     // Hier Setter ergaenzen
 
-    constructor() {
-        this.#name = "name des Objekts"
+   getAehnlicheObjekte(){
+        console.log("eine Liste ähnlicher Objekte"); 
+   }
+
+    constructor(obj21Data) {
+        if(obj21Data == undefined){
+            this.#name = "name des Objekts"
+        }
+        else{
+            this.#objektID = obj21Data.objektID
+            this.#name = obj21Data.name
+            this.#untertitel = obj21Data.untertitel
+            this.#langbeschreibung = obj21Data.langbeschreibung
+            this.#bereitstellendeInstitution = obj21Data.bereitstellendeInstitution
+            this.#urheber = obj21Data.urheber
+            this.#eigentuemer = obj21Data.eigentuemer
+            this.#artDesObjekts = obj21Data.artDesObjekts
+            this.#audiodeskription = obj21Data.audiodeskription
+        }
+
     }
 }
 

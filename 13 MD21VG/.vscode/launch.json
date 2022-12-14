@@ -4,12 +4,17 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-       
         {
             "type": "firefox",
             "request": "launch",
             "name": "VG Start Debug",
-            "file": "${workspaceFolder}/index.html"
+            "file": "${workspaceFolder}/index.html",
+            "pathMappings": [
+                {
+                    "url": "file:///C:/Users/m3fis/Coding%20Projekte/01%20Grundlagen%20HTML%20CSS%20und%20JS/13%20MD21VG",
+                    "path": "${workspaceFolder}"
+                }
+            ]
         }
     ]
 }
