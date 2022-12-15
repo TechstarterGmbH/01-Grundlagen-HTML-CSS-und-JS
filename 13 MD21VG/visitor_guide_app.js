@@ -27,4 +27,4 @@ let vg = new Map()
  *          (in Form einer Map) anlegen
  */
 const o21Map = await Objekt21.CreateO21Map("./data/objekt21-data.json")
-console.log("Anzahl: " + o21Map.size);
+C ("Anzahl: " + o21Map.size);

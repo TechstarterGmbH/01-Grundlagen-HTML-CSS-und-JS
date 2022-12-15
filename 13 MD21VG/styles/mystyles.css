@@ -1,0 +1,21 @@
+.container{
+    width: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .blau21{
+    background-color: #1A2238;
+  }
+
+  .hellblau21{
+    background-color: #9DAAF2;
+  }
