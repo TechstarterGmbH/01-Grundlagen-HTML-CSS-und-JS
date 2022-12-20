@@ -95,10 +95,6 @@ function find_o21(){
 
     searchList.appendChild(o21_html_element);
 
-
-
-  
-
     document.getElementById("search_results").appendChild(searchList);
 
 
