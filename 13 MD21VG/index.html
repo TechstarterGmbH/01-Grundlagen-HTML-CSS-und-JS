@@ -7,7 +7,7 @@
     <title>Museum des 21.Jahrhunderst - Visitor Guide</title>
     <script type="module" src="visitor_guide_app.js"></script>
 
-    <!--materializecss - Warum nicht mal ein anderes CSS Frameworkausprobieren?-->
+    <!--materializecss - Warum nicht mal ein anderes CSS Framework ausprobieren?-->
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -15,6 +15,9 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.0/dist/js/materialize.min.js"></script>
            
+    <!-- Jetzt den Visitor Guide laden    -->
+    <script src="visitor_guide_app.js"></script>
+
     <!--Zuletzt meine eigenen Styles => naeher am Objekt-->
     <link rel="stylesheet" href="styles/mystyles.css">
 </head>
@@ -25,20 +28,21 @@
 
         <nav>
             <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Logo</a>
-            <a href="#" data-target="mobile-nav-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="sass.html">Ausstellungen</a></li>
-                <li><a href="badges.html">Sammlungen</a></li>
-                <li><a href="collapsible.html">Objekte</a></li>
-            </ul>
+                <a href="#!" class="brand-logo">logo</a>
+                <a href="#" data-target="mobile-nav-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <!--Das Menu in der Desktop Ansicht-->
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Ausstellungen</a></li>
+                    <li><a href="#">Sammlungen</a></li>
+                    <li><a href="#">Objekte</a></li>
+                </ul>
             </div>
         </nav>
-    
+        <!-- Das Hamburger-Menu in der mobile Ansicht-->
         <ul class="sidenav" id="mobile-nav-menu">
-            <li><a href="sass.html">Ausstellungen</a></li>
-            <li><a href="badges.html">Sammlungen</a></li>
-            <li><a href="collapsible.html">Objekte</a></li>
+            <li><a href="#">Ausstellungen</a></li>
+            <li><a href="#">Sammlungen</a></li>
+            <li><a href="#">Objekte</a></li>
         </ul>
 
         
@@ -46,23 +50,27 @@
     
     <main id="VG-APP">
         <div class="container ">
-            <div class="row center-align">
-                <h1>Finde Dein Objekt</h1>
+            <div class="row">
+                <div class="col s12">
+                    <h1 class="center-align" id="main-h1-header">Finde Dein Objekt</h1>
+                </div>
             </div>
-            <div class="row ">
-                
+            <div class="row ">                
                 <div class="input-field col s5 offset-s3 ">
                     <input placeholder="Finde Dein Objekt" id="O21-Suche" type="text" class="validate">
                     <label for="O21-Suche">Objektsuche</label>
                 </div>
-                <div class="col s1 ">
+                <div id="btn_find_object" class="col s1 ">
                     <a class="btn-floating pulse blau21"><i class="material-icons">search</i></a>
                 </div>
+            </div>
+            <!--Ein leerer Container für unsere Suchergebnisse-->
+            <div id="search_results" class="row"></div> 
         </div>
     </main>
     
-    <footer class="page-footer blue-grey darken-3">
-        <div class="container">
+    <footer class="container page-footer blue-grey darken-3">
+        
           <div class="row">
             <div class="col l6 s12">
               <h5 class="white-text">Musuem des 21.Jahrhunderts</h5>
@@ -70,15 +78,16 @@
             </div>
             
           </div>
-        </div>
-        <div class="footer-copyright  blue-grey darken-4">
-          <div class="container">
-            <div class="row">
-                <div class="col s4"> © 2022 MD21</div>
-                <div class="col s4 offset-s4"><a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-                </div>
-        </div>  
-        </div>
+        
+        <div class="footer-copyright blue-grey darken-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col s4"> © 2022 MD21</div>
+                    <div class="col s4 offset-s4">
+                        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                    </div>
+                </div>  
+            </div>
         </div>
       </footer>
 

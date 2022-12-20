@@ -14,7 +14,7 @@ class Objekt21 {
     #untertitel 
     #kurzbeschreibung
     #langbeschreibung 
-    Bild
+    #bild
     #bereitstellendeInstitution
     #urheber
     #eigentuemer
@@ -49,7 +49,8 @@ class Objekt21 {
             this.#name = "name des Objekts"
         }
 
-        // Auf Basis der abgestimmten Datenstruktur wird ein einzelnes Objekt erstellt
+        // Auf Basis der abgestimmten Datenstruktur wird ein einzelnes 
+        // Objekt erstellt
         else if (option == Objekt21.Option.SINGLE_OBJEKT21) {
             this.#objektID = obj21Data.objektID
             this.#name = obj21Data.name
@@ -73,6 +74,7 @@ class Objekt21 {
      * das Objekt als Value. 
      * @param {*} url Pfad auf eine O21 Json Datei
      * @returns MAP von Objekt21-Objekten. Dabei dient die Objekt ID als Key und das Objekt als Value. 
+     * 
      */
     
     static async CreateO21Map(url){
@@ -91,7 +93,6 @@ class Objekt21 {
 
     }
 }
-
 
 
 function machwas(){
