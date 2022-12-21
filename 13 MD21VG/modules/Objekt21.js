@@ -18,6 +18,7 @@ class Objekt21 {
     #bereitstellendeInstitution
     #urheber
     #eigentuemer
+    #url
     
     //Objekte koennen z.B Statuen, Bilder, 3D-Objekte uvm sein.
     #artDesObjekts 
@@ -29,11 +30,13 @@ class Objekt21 {
     get untertitel () {return this.#untertitel}
     get kurzbeschreibung () {return this.#kurzbeschreibung}
     get langbeschreibung () {return this.#langbeschreibung}
+    get bild (){return this.#bild}
     get bereitstellendeInstitution () {return this.#bereitstellendeInstitution}
     get urheber () {return this.#urheber}
     get eigentuemer () {return this.#eigentuemer}
     get artDesObjekts () {return this.#artDesObjekts}
     get audiodeskription () {return this.#audiodeskription}
+    get url(){return this.#url}
 
     // Hier Setter ergaenzen
 
@@ -55,12 +58,14 @@ class Objekt21 {
             this.#objektID = obj21Data.objektID
             this.#name = obj21Data.name
             this.#untertitel = obj21Data.untertitel
+            this.#bild = obj21Data.bild
             this.#langbeschreibung = obj21Data.langbeschreibung
             this.#bereitstellendeInstitution = obj21Data.bereitstellendeInstitution
             this.#urheber = obj21Data.urheber
             this.#eigentuemer = obj21Data.eigentuemer
             this.#artDesObjekts = obj21Data.artDesObjekts
             this.#audiodeskription = obj21Data.audiodeskription
+            this.#url = obj21Data.URL
         }
        
         else{
@@ -86,7 +91,7 @@ class Objekt21 {
         for (let index = 0; index < o21_json.length; index++){
             let o = new Objekt21(o21_json[index], Objekt21.Option.SINGLE_OBJEKT21)
             o21.set(o.objektID,o);
-            console.log(`Objekt ID: ${o.objektID}, Objektname: ${o.name}`)
+            console.log(`IMPORT Objekt ID: ${o.objektID} Objektname: ${o.name}`)
         }
         console.log("Anzahl Objekte in Map o21: " + o21.size)
         return o21

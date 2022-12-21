@@ -10,8 +10,10 @@
     <!--materializecss - Warum nicht mal ein anderes CSS Framework ausprobieren?-->
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.0/dist/css/materialize.min.css">
+    
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.0/dist/js/materialize.min.js"></script>
            
@@ -34,7 +36,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#">Ausstellungen</a></li>
                     <li><a href="#">Sammlungen</a></li>
-                    <li><a href="#">Objekte</a></li>
+                    <li id="btn_find_Objektliste_Desktop"><a href="#">Objekte</a></li>
                 </ul>
             </div>
         </nav>
@@ -42,7 +44,7 @@
         <ul class="sidenav" id="mobile-nav-menu">
             <li><a href="#">Ausstellungen</a></li>
             <li><a href="#">Sammlungen</a></li>
-            <li><a href="#">Objekte</a></li>
+            <li id="btn_find_Objektliste"><a href="#">Objekte</a></li>
         </ul>
 
         
@@ -66,6 +68,33 @@
             </div>
             <!--Ein leerer Container für unsere Suchergebnisse-->
             <div id="search_results" class="row"></div> 
+
+            <!-- Ein Alternativer Ansatz. Wir erstellen nicht den HTML-Code im 
+                JavaScript sondern legen uns in der Index.html ein HTML-Template an, 
+                dass wir mittels JavaScript verwenden -->
+            <div id="o21_list" class="row hide">
+                <div id = "o21_html_template" class="col s12 m4">
+                    <div class="card">
+                      <div class="card-image">
+                        <img id="card_img" src="img/logo_einfach_500x500.png">
+                        <span id="card_title" class="card-title">Der Titel der Card</span>
+                      </div>
+                      <div class="card-content">
+                        <h2 id="card_header" >Eine einfache Karte</h2>
+                        <p id="card_fullDescription">hier können wir beliebigen Text einfügen</p>
+                        <p>Urheber</p>
+                        <p>Institut</p>
+                      </div>
+                      <div class="card-action">
+                        <a href="#">Der Link zu dem Objekt</a>
+                      </div>
+                    </div>
+                </div>
+            </div> 
+
+
+
+
         </div>
     </main>
     
