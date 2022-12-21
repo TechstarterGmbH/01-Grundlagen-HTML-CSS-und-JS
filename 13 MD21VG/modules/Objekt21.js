@@ -30,7 +30,16 @@ class Objekt21 {
     get untertitel () {return this.#untertitel}
     get kurzbeschreibung () {return this.#kurzbeschreibung}
     get langbeschreibung () {return this.#langbeschreibung}
-    get bild (){return this.#bild}
+    get bild (){
+        let img ="";
+        if (this.#bild == undefined){ 
+            img="img/logo_einfach_500x500.png"
+        } 
+        else{
+            img = this.#bild
+        }
+        return img
+    }
     get bereitstellendeInstitution () {return this.#bereitstellendeInstitution}
     get urheber () {return this.#urheber}
     get eigentuemer () {return this.#eigentuemer}

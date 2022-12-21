@@ -39,8 +39,8 @@ VG21 = o21Map
  */
 document.getElementById("btn_find_object").addEventListener("click", find_o21);
 //document.getElementById("btn_find_Objektliste").addEventListener("click", find_o21_list);
-document.getElementById("btn_find_Objektliste").addEventListener("click", createObjectListTheDirtyWay);
-document.getElementById("btn_find_Objektliste_Desktop").addEventListener("click", createObjectListTheDirtyWay);
+document.getElementById("btn_find_Objektliste").addEventListener("click", show_all_O21_items);
+document.getElementById("btn_find_Objektliste_Desktop").addEventListener("click", show_all_O21_items);
 
 /**
  * Anhand eine Objekt ID wird ein einzelnes Objekt gesucht. 
@@ -57,6 +57,7 @@ function find_o21(){
       
     // HTML Felder für ein O21 Objekt vorbereiten 
     const o21_html_element = document.createElement("div");
+    o21_html_element.setAttribute("class","col s8 offset-s2");
 
     let o21 = VG21.get(o21_objekt_id)
     if (o21 != undefined){   
@@ -79,40 +80,21 @@ function find_o21(){
 /**
  * Nicht schön aber praktikabel wird für jedes O21-Objekt ein HTML Template angelegt
  */
-function createObjectListTheDirtyWay(){
-    // HTML Elemente abrufen
-    const o21_list = document.getElementById("o21_list");
-    const html_template = document.getElementById("o21_html_template");
-
+function show_all_O21_items(){
+    
+    let o21_list = create_SearchList_element();
     // Für jedes Element im Visitor Guide
     for (const [o21id, o21] of VG21) {
 
-        if(o21_list.classList.contains("hide") == true){
-            // Wenn Das Element unsichtbar ist, ist dies der erste Aufruf.
-            o21_list.classList.remove("hide")
-            // => also erstmal das Template löschen
-            o21_list.innerHTML=""
-        }
-        else {
-            // Nichts zu tun
-        }
-
         const o21_item = document.createElement("div");
         o21_item.setAttribute("id",o21.objektID )
-        o21_item.setAttribute("class", "col s12 m4")
+        o21_item.setAttribute("class", "col s12 m4")      
 
-        let img ="" 
-        if (o21.bild == undefined){
-            img="img/logo_einfach_500x500.png"
-
-        } else{
-            img = o21.bild
-        }
-
-        let html_dirty_Template =  
+        
+        let html_Template =  
             `<div class="card">
                 <div class="card-image">
-                    <img id="${o21.objektID}_card_img" src="${img}">
+                    <img id="${o21.objektID}_card_img" src="${o21.bild}">
                     <span id="${o21.objektID}_card_title" class="card-title">${o21.name}</span>
                 </div>
                 <div class="card-content">
@@ -126,13 +108,14 @@ function createObjectListTheDirtyWay(){
                 </div>
                 </div>`     
         
-        o21_item.innerHTML = html_dirty_Template
+        o21_item.innerHTML = html_Template
     
-        // Egal ob beim ersten oder einem spaeteren Aufruf es wird das geclonte Objekte hinzugefügt
+        // Das erstellte Objekt wird der Objektliste hinzugefügt
         o21_list.appendChild(o21_item)
+
+        // Die Liste der Elemente wird dem "Ergebniselement" hinzugefügt
+        document.getElementById("search_results").appendChild(o21_list);
     }
-
-
 }
 
 
@@ -201,6 +184,11 @@ function getO21ID_from_userinput(htmlInputId = "O21-Suche") {
 }
 
 function createHTMLElements(o21, o21_html_element) {
+    const ob21_bild_item = document.createElement("img");
+    ob21_bild_item.setAttribute ("id", o21.objektID + "_single_view")
+    ob21_bild_item.setAttribute("src", o21.bild)
+    ob21_bild_item.setAttribute("class", "responsive-img")
+
     const ob21_name_item = document.createElement("h2");
     ob21_name_item.innerText = o21.name;
 
@@ -232,6 +220,7 @@ function createHTMLElements(o21, o21_html_element) {
     ob21_audiodeskription_item.innerText = "audiodeskription:" + o21.audiodeskription;
 
     // Alle Felder dem o21 Element hinzufügen
+    o21_html_element.append(ob21_bild_item);
     o21_html_element.append(ob21_name_item);
     o21_html_element.append(ob21_id_item);
     o21_html_element.append(ob21_untertitel_item);
