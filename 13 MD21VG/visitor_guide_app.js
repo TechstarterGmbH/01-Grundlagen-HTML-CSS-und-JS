@@ -83,13 +83,20 @@ function find_o21(){
 function show_all_O21_items(){
     
     let o21_list = create_SearchList_element();
+    //Wir fragen das Element ab, in das alle gefunden Objekte eingetragen werden sollen
+    let results = document.getElementById("search_results")
+    results.innerHTML="";
+    
+    // Ein Index, um zu zaehlen wieviele Elemente in einer Zeile sind
+    let itemCounter = 1;
+    let tempResults =""
+   
     // Für jedes Element im Visitor Guide
     for (const [o21id, o21] of VG21) {
 
         const o21_item = document.createElement("div");
         o21_item.setAttribute("id",o21.objektID )
         o21_item.setAttribute("class", "col s12 m4")      
-
         
         let html_Template =  
             `<div class="card">
@@ -106,16 +113,39 @@ function show_all_O21_items(){
                 <div class="card-action">
                     <a href="#">Der Link zu dem Objekt</a>
                 </div>
-                </div>`     
+            </div>`     
         
         o21_item.innerHTML = html_Template
     
         // Das erstellte Objekt wird der Objektliste hinzugefügt
         o21_list.appendChild(o21_item)
 
-        // Die Liste der Elemente wird dem "Ergebniselement" hinzugefügt
-        document.getElementById("search_results").appendChild(o21_list);
+        if (itemCounter == 1){
+            // Noch ist die Liste leer, dennoch können wir diese bereits der Ergbnisliste hinzufuegen und in den weiteren Iterationen befüllen 
+            //results.appendChild(o21_list);
+            
+        } else if ((itemCounter % 3) == 0){
+            // o21_list = o21_list.cloneNode();
+            // o21_list.id =  o21_list.id +"_"+ itemCounter
+            // o21_list.innerHTML = "";
+
+            // tempResults = document.createElement("div");
+            // tempResults.setAttribute("id", "search_results_");
+            // tempResults.setAttribute("class", "row");
+            // tempResults.appendChild(o21_list);
+            // // das in den letztn drei Iterationen gefuellte Liste wird NACH der bereits vorhandenen Liste im HTML Dokument eingefügt
+            // results.after(tempResults);
+
+            // die aktuelle Ergbnissliste wird fuer die nächste drei Iterationen in der vorherigen Liste gepsiechert
+            //results = tempResults
+        }else{
+
+        }
+
+        itemCounter++
     }
+    // Die Liste der Elemente wird dem "Ergebniselement" hinzugefügt
+    document.getElementById("search_results").appendChild(o21_list);
 }
 
 
@@ -141,6 +171,7 @@ function create_SearchList_element() {
         // an der Stelle koennen wir Inhalte loeschen, 
         // die aus vorherigen Suchen noch sichtbar sind.
         searchList.innerHTML = "";
+        document.getElementById("search_results").innerHTML="";
     }
     return searchList;
 }
@@ -161,24 +192,32 @@ function getO21ID_from_userinput(htmlInputId = "O21-Suche") {
      **/ 
 
     // 0. String "aufräumen" => Keine Leerzeichen, nur Großbuchstaben
-    let userinput = String(document.getElementById("O21-Suche").value);
+    let userinput = String(document.getElementById(htmlInputId).value);
     let o21_id = userinput.trim();
     o21_id = o21_id.toUpperCase();
 
     // 1. Check: eine ID kann max. 5 lang sein
-    if(o21_id.length == 5) {
+    const DEFAULT_ID_LENGTH = 5
+    if(o21_id.length == DEFAULT_ID_LENGTH) {
         //super, so muss das sein
-    }else if (o21_id.length < 5){
+        if(o21_id.charAt(0) == "O" || 
+            o21_id.charAt(0) == "A" ||
+            o21_id.charAt(0) == "S"){
+                // alles super
+            }
+        else {
+            C ("VALIDIERUNG: ID ist nicht wohlgefomrt: " + o21_id)
+        }
+    }else if (o21_id.length < DEFAULT_ID_LENGTH){
         // das ist keine gültige ID
         C ("VALIDIERUNG: ID ungueltig. zu kurz : " + o21_id)
-    }else if (o21_id.length > 5){
+    }else if (o21_id.length > DEFAULT_ID_LENGTH){
         // das ist keine gültige ID
         C ("VALIDIERUNG: ID ungueltig. zu lang : " + o21_id)
     }else{
-        //dieser Bereich kann eigentlich nicht erreicht werden
+        // Dieser Bereich kann eigentlich nicht erreicht werden
+        // Was muss geschehen, damit diexer Code erreicht wird?
     }
-
-    //
 
     return o21_id
 }
@@ -250,7 +289,7 @@ function smallerHeader(){
 // Daher wird die Funktion derzeit nicht verwendet. 
 // NUR ZUR ANSICHT 
 function find_o21_list(){
-
+alert("")
     // HTML Elemente abrufen
     const o21_list = document.getElementById("o21_list");
     const html_template = document.getElementById("o21_html_template");

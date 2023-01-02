@@ -79,7 +79,37 @@
         "artDesObjekts":"Objekt",
         "audiodeskription":"NEIN",
         "URL": "https://artsandculture.google.com/asset/plastisches-votiv-%E2%80%9Egeb%C3%A4rmutter%E2%80%9C-unbekannt/pwGzcnWllGsLJQ"
+    },
+    {
+        "objektID":"OGS1A",
+        "name":"Bacchus",
+        "untertitel":"After a model by Giambologna dating from c. 1580",
+        "kurzbeschreibung":"",
+        "langbeschreibung":"" ,
+        "bereitstellendeInstitution":"Statens Museum for Kunst",
+        "bild": "https://api.smk.dk/api/v1/thumbnail/888dc46e-a4d7-4c01-b443-4a79140c7c67.jpg",
+        "urheber":"Giambologna",
+        "eigentuemer":"",
+        "artDesObjekts":"Statue",
+        "audiodeskription":"NEIN",
+        "URL": ""
+    }, 
+    
+    {
+        "objektID":"O09AS",
+        "name":"Stående kvindelig model",
+        "untertitel":"Model",
+        "kurzbeschreibung":"",
+        "langbeschreibung":"" ,
+        "bereitstellendeInstitution":"Statens Museum for Kunst",
+        "bild": "https://mdl.artvee.com/sftb/30758dr.jpg",
+        "urheber":"Hans Smidth",
+        "eigentuemer":"",
+        "artDesObjekts":"Statue",
+        "audiodeskription":"NEIN",
+        "URL": "https://www.europeana.eu/de/item/2020903/KKS12536"
     }
+
 
 
 ]
