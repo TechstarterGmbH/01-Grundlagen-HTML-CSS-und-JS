@@ -1,0 +1,23 @@
+// Zum erstellen des Servers benötigen wird das Node.js package http
+const http = require ('http');
+
+const hostname = '127.0.0.1'
+const port = 3005
+
+let aufrufCounter = 0;
+
+// Ein einfacher HTTP Server in Node.js implementiert. 
+// Bei jedem Aufruf des Servers wird die Call-Back-Funktion aufgerufen.
+// const server = http.createServer(Call-Back-Funktion)
+const server = http.createServer((request, response) => {
+    response.statusCode = 200;
+    response.setHeader ('Content-Type', 'text/html');
+    //console.log(response);
+    console.log (aufrufCounter++)
+    response.end ('<h1>Hello World :-)</h1>')
+});
+
+// Der Port und der Hostname des Servers werden "konfiguriert"
+server.listen(port, hostname, () => {
+    console.log(`Server is running at ${hostname}:${port}`);
+})

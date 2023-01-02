@@ -1,0 +1,5 @@
+// Eine minimal App, die nur die übergeben Paramter Ausgibt.
+// Die Paramter werden in der launch.json gesetzt
+process.argv.forEach(function (val, index, array) {
+     console.log(index + ': ' + val);
+});

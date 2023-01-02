@@ -1,0 +1,49 @@
+// auskommentieren - Zeilenweise
+// strg + K + C
+// Strg + K + U
+
+// auskommentieren - Blockweise
+// Shift Alt A
+
+
+//Plain JavaScript - Das aktuelle Datum in der Form [YYYY MM DD hh:mm:ss] erstellen
+let heute = new Date();
+let datum = `[${heute.getFullYear()}-${heute.getMonth() + 1}-${heute.getDate()} ${heute.getHours()}:${heute.getMinutes()}:${heute.getSeconds()}]`
+
+// console.log(datum)
+// console.log(__dirname)
+// console.log(__filename)
+
+// Alle übergeben Argumten ausgeben
+// process.argv.forEach(function (val, index, array) {
+//     console.log(index + ': ' + val);
+// });
+
+// Wiederholung: Möglichkeiten eine Funktion in JavaScript zu erstelen
+
+// 1. Benannte Funktion (=> der reguläre Weg)
+function addiere(wert1, wert2){
+    let ergbnis = wert1 + wert2
+    console.log(ergbnis)
+    return (ergbnis);
+}
+
+// 1a Funktionen können auch an Variablen übergeben werden
+const add1 = addiere
+
+// 2. Annonyme Funktion mit Zugriff über die Variable
+const add2 = function (wert1, wert2){ return wert1+wert2 }
+
+// 3. Annonyme Funktion in Arrwo-Schreibweise...
+// ... mit Paramtern
+const add3 = (wert1, wert2) => { return wert1+wert2 }
+// ... ohne Paramter
+const pause = () => {console.log ("JETZT IST PAUSE")} 
+
+
+// Alle zuvor definierten Funktionen werden einmal ausgeführt
+addiere(12, 34)
+add1(10,5)
+console.log("annonyme Funktion: " +  add2(50,87))
+console.log("Arrow Funktion " + add3(40,87))
+pause()
