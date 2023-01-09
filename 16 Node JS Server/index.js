@@ -22,7 +22,7 @@ db.run('CREATE TABLE IF NOT EXISTS Logs(id INTEGER PRIMARY KEY, logMsg TEXT)');
 
 
 
-
+let data ="";
 let server = http.createServer((req,res) => {
     res.setHeader ('Content-Type', 'text/html; charset=utf-8');
 
@@ -37,18 +37,20 @@ let server = http.createServer((req,res) => {
         let value = 'iuwuewe'
         let logdata = `Diese Werte möchte ich speichern: ${value}`
         let sqlQuery = `INSERT INTO Logs VALUES (NULL, :logMsg)`
+        
+
+
         db.run(sqlQuery,[logdata]);
         // print all data contained in SQLITE table
-        let data =""
+        
         db.all("SELECT * FROM Logs", function(err, rows) {
             rows.forEach(function (row) {
             console.log(row.id + ": " + row.logMsg );
-            data += row.id + ": " + row.logMsg;
-            
+            data += `<p>Log ${row.id} : ${row.logMsg}</p>`;
             });
         });
         res.write("<div>" + data +"</div>")
-        res.end("<h1>Einträge der SQLite DB</h1>");
+        res.end();
     }
     else if(req.url==="/schreibwas"){
         let dateiname = "mein-datei.txt"
