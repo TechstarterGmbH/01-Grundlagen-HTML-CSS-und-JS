@@ -1,0 +1,16 @@
+{
+  "name": "16-node-js-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Ein beispiel zum Nutzen von Node.JS und NPM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Manuel Fischer",
+  "license": "MIT",
+  "dependencies": {
+    "sqlite3": "^5.1.4"
+  }
+}
