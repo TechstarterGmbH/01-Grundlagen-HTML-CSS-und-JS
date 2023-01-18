@@ -1,0 +1,22 @@
+html
+  head
+    title= title
+  body
+    h1= message
+    h2 das ist aus main router
+    form(action="/sag_hallo", method='POST') 
+      label(for="nutzername") Dein Name
+      br
+      input(type='text', name='nutzername', value='')
+      br
+
+      label(for="nickname") Dein Spitzname
+      br
+      input(type='text', name='nickname', value='')
+      br
+
+      label(for="slogan") Dein Leitspruch
+      br
+      input(type='text', name='slogan', value='')
+      br
+      input(type='submit', value='Submit')

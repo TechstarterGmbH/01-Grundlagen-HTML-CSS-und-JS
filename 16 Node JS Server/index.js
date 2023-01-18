@@ -27,7 +27,7 @@ let server = http.createServer((req,res) => {
     res.setHeader ('Content-Type', 'text/html; charset=utf-8');
 
     if(req.url ==="/"){
-        let data ="<h1>Hallo</h1> <p>Dieser Text darf belibig ang werden</p>"
+        let data ="<h1>Hallo</h1> <p>Dieser Text darf belibig lang werden</p>"
         res.end(data);
     }
     else if(req.url==="/ueber"){
