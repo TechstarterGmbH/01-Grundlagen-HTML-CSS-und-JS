@@ -1,12 +1,30 @@
+# Freitag (20.01)
+1. ~~Beispiele Closure: Click Counter, Datenkapselung, ~~
+2. Hausaufgabe Ü10
+3. Review & Planing
+4. AWS Prüfungsplanung
+5. 
+
+
+
+
+# Donnerstag (19.01)
+1. Scope ... von Funktionen
+2. Funktionsparameter ... mit Rest Parametern
+3. Call Back Funktionen
+4. eingebettete (nested) Funktionen
+5. selbsaufrufende Funktionen
+6. Clossure
+
+
+
 # Mittwoch (18.01)
-1. Funktionen in JavaScript ("regulär", annonym, Arrow-Schreibweise)
+1. Funktionen in JavaScript ("regulär", anonym, Arrow-Schreibweise)
 2. Funktionsparameter ... mit primitiven Datentypen
 3. Funktionsparameter ... mit "komplexe" Datentypen
 4. Funktionsparameter ... mit Funktionen
 4. Funktionsparameter ... mit Rest Parametern
-5. Call Back Funktionen
-6. Scope von Funktionen
-7. eingebettete (nested) Funktionen
+5. 
 8. Kahoot
 9. Debuging von NodeJS in VSCode
 10. HTTP-Request
