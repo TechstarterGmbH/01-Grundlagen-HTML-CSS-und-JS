@@ -113,14 +113,13 @@ function erstelle_neue_datei(dateiname, data){
 
 
 
-//2 Bestehende Datei öffnen und Inhalt vollständig überschreiben
+//2 Bestehende Datei öffnen und Inhalt am Ende anfürgen
+
 function ergaenze_daten(dateiname, neue_daten){
     // Eine neue Datei erstellen oder eine bestehnde Datei ergänzen.
     // Damit jeder eintrag in eine neue zeile geschrieben wird muss
     // das Betriebssystemspezifische Zeilen (EOL => End of Line) ergaenzt werden
-    fs.appendFile(dateiname,neue_daten, ()=>{
+    fs.appendFile(dateiname,neue_daten + os.EOL, ()=>{
         console.log("Datei erstellt")})
 }
 
-//3 Bestehende Datei öffnen und Inhalt am Ende anfürgen
-//4 Bestehende Datei öffnen und Inhalt am Anfang anfürgen
