@@ -24,13 +24,35 @@ app.all('/*', (req, res, next) => {
   next() // Wenn die Middleware fertig ist wird der Aufruf "weiter gegeben"
 })
 
-app.get('/', (req, res) => {    
-    res.send('Hello World!')
+app.get("/hardware", (req, res) => { 
+  res.send("Hier Liste aller geräte ausgeben")
 })
 
-app.get('/artist', (req, res) => {    
-  res.send('Suche Künstler ....')
+app.get("/hardware/id/*", (req, res) => { 
+  res.send("hier ein einzelnes Gerät ausgeben")
 })
+
+
+// Ein Spiegel. Alles Was Postman sendet wird direkt zurück gesendet
+app.all('/*', (req, res) => {  
+  let time = dayjs().format('HH:mm:ss');
+  let msg = `[REQUEST ${counter}] ${time} 
+  HOST: ${req.headers.host}
+  HTTP-Method: ${req.method} 
+  URL:  ${req.originalUrl}
+  Querry: ${ JSON.stringify( req.query)}
+  Body: ${JSON.stringify(req.body)}\n`
+
+  res.send( msg)
+})
+
+// app.get('/', (req, res) => {    
+//     res.send('Hello World!')
+// })
+
+// app.get('/artist', (req, res) => {    
+//   res.send('Suche Künstler ....')
+// })
 
 
 app.listen(port, () => {

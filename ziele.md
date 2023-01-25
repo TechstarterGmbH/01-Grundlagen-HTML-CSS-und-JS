@@ -1,8 +1,14 @@
+# Mittwoch (25.01)
+1. HTTP & Postman
+2. Übung zu APIs
+3. (Kahoot)
+4. AWS mit Stefan
+
 # Dienstag (24.01)
 1. ~~Übung 11 nachholen (=> Fehler finden) bis 8:40~~
 2. HTTP
 3. Postman
-5. AWS Prüfungsvorbereitung mit Colin Teil 2
+5. ~~AWS Prüfungsvorbereitung mit Colin Teil 2~~
 
 
 # Montag (23.01)
